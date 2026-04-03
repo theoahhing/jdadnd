@@ -32,6 +32,7 @@ public class CommandManager {
 
     private void registerDefaultCommands() {
         registerCommand(new PingCommand());
+        registerCommand(new RollCommand());
     }
 
     /**

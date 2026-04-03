@@ -8,6 +8,7 @@ package com.bktvsolutions.bot;
 import com.bktvsolutions.config.Config;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
@@ -65,7 +66,9 @@ public class BotLauncher {
         if (guild != null) {
             guild.updateCommands()
                     .addCommands(
-                            Commands.slash("ping", "Checks if the bot is responding")
+                            Commands.slash("ping", "Checks if the bot is responding"),
+                            Commands.slash("roll", "Rolls a die")
+                                    .addOption(OptionType.INTEGER, "sides", "Number of sides on the die", false)
                     )
                     .queue();
         }
