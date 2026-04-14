@@ -73,6 +73,9 @@ public class BotLauncher {
                     .addCommands(
                             Commands.slash("startgame", "Starts a new game session"),
                             Commands.slash("join", "Joins the current game session"),
+                            Commands.slash("createcharacter", "Creates a character for the current player")
+                                    .addOption(OptionType.STRING, "name", "Name of your character", true)
+                                    .addOption(OptionType.STRING, "class", "Character class: fighter, wizard, assassin", true),
                             Commands.slash("startencounter", "Starts the encounter and begins turn order"),
                             Commands.slash("endturn", "Ends the current turn"),
                             Commands.slash("endgame", "Ends the current game session"),

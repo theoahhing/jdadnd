@@ -40,6 +40,7 @@ public class CommandManager {
         registerCommand(new RollCommand());
         registerCommand(new StartGameCommand(gameSessionService));
         registerCommand(new JoinGameCommand(gameSessionService));
+        registerCommand(new CreateCharacterCommand(gameSessionService));
         registerCommand(new StartEncounterCommand(gameSessionService));
         registerCommand(new EndTurnCommand(gameSessionService));
         registerCommand(new EndGameCommand(gameSessionService));

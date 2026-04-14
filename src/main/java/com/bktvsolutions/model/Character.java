@@ -9,6 +9,8 @@ public class Character {
     private final String id;
     private String name;
 
+    private CharacterClass characterClass;
+
     private int level;
 
     private int maxHealth;
@@ -23,6 +25,7 @@ public class Character {
 
         @param id unique character identifier
         @param name character name
+        @param characterClass character class type
         @param level character level
         @param maxHealth maximum health
         @param strength strength stat
@@ -30,9 +33,15 @@ public class Character {
         @param intelligence intelligence stat
     */
 
-    public Character(String id, String name, int level, int maxHealth, int strength, int agility, int intelligence) {
+    public Character(String id, String name, CharacterClass characterClass, int level, int maxHealth,
+                     int strength, int agility, int intelligence) {
         validateString(id, "id");
         validateString(name, "name");
+
+        if (characterClass == null) {
+            throw new IllegalArgumentException("characterClass cannot be null");
+        }
+
         validatePositive(level, "level");
         validatePositive(maxHealth, "maxHealth");
         validateNonNegative(strength, "strength");
@@ -41,6 +50,7 @@ public class Character {
 
         this.id = id;
         this.name = name;
+        this.characterClass = characterClass;
         this.level = level;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
@@ -60,6 +70,18 @@ public class Character {
     public void setName(String name) {
         validateString(name, "name");
         this.name = name;
+    }
+
+    public CharacterClass getCharacterClass() {
+        return characterClass;
+    }
+
+    public void setCharacterClass(CharacterClass characterClass) {
+        if (characterClass == null) {
+            throw new IllegalArgumentException("characterClass cannot be null");
+        }
+
+        this.characterClass = characterClass;
     }
 
     public int getLevel() {
@@ -198,6 +220,7 @@ public class Character {
         return "Character{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", characterClass=" + characterClass +
                 ", level=" + level +
                 ", currentHealth=" + currentHealth +
                 "/" + maxHealth +
