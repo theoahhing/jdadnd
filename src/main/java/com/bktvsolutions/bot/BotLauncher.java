@@ -77,8 +77,11 @@ public class BotLauncher {
                                     .addOption(OptionType.STRING, "name", "Name of your character", true)
                                     .addOption(OptionType.STRING, "class", "Character class: fighter, wizard, assassin", true),
                             Commands.slash("startencounter", "Starts the encounter and begins turn order"),
+                            Commands.slash("listplayers", "Lists all players in the current game session"),
                             Commands.slash("endturn", "Ends the current turn"),
                             Commands.slash("endgame", "Ends the current game session"),
+                            Commands.slash("leavegame", "Leaves the current game session"),
+                            Commands.slash("characterinfo", "Shows your current character information"),
                             Commands.slash("ping", "Checks if the bot is responding"),
                             Commands.slash("roll", "Rolls a die")
                                     .addOption(OptionType.INTEGER, "sides", "Number of sides on the die", false)
