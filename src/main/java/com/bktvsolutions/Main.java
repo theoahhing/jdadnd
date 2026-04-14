@@ -11,7 +11,7 @@
 
     Aiming to create enterprise-grade distributed game server that includes:
         - Multi-player session management
-        - Turn-based engine (state machine 👀)
+        - Turn-based engine (state machine)
         - Persistent storage (SQLite/PostgreSQL)
         - Command handling system (modular)
         - Game state recovery after restart
@@ -34,6 +34,7 @@ package com.bktvsolutions;
 import com.bktvsolutions.bot.BotLauncher;
 import com.bktvsolutions.bot.BotListener;
 import com.bktvsolutions.config.Config;
+import com.bktvsolutions.command.CommandManager;
 
 /**
     Main entry point for the JDA DND bot application.
@@ -52,7 +53,8 @@ public final class Main {
         try {
             String token = Config.getDiscordToken();
 
-            BotListener botListener = new BotListener();
+            CommandManager commandManager = new CommandManager();
+            BotListener botListener = new BotListener(commandManager);
             BotLauncher botLauncher = new BotLauncher(token, botListener);
 
             botLauncher.start();
