@@ -16,11 +16,11 @@ import com.bktvsolutions.util.DiceUtil;
 public class DiceService {
 
     /**
-       Rolls a single die with the specified number of sides.
+        Rolls a single die with the specified number of sides.
 
-       @param sides number of sides on the die
-       @return result of the die roll
-       @throws IllegalArgumentException if sides is less than or equal to 0
+        @param sides number of sides on the die
+        @return result of the die roll
+        @throws IllegalArgumentException if sides is less than or equal to 0
     */
 
     public int rollDie(int sides) {

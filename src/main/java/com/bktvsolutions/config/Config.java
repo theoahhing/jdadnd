@@ -36,7 +36,7 @@ public final class Config {
 
     /**
         Returns the Discord Guild ID from the .env file.
-     */
+    */
 
     public static String getDiscordGuildId() {
         String guildId = DOTENV.get("DISCORD_GUILD_ID");

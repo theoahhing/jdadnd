@@ -158,6 +158,7 @@ public class Character {
     /**
         Fully restores the character's health.
     */
+
     public void restoreToFullHealth() {
         currentHealth = maxHealth;
     }
