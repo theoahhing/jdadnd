@@ -42,6 +42,7 @@ public class CommandManager {
         registerCommand(new JoinGameCommand(gameSessionService));
         registerCommand(new StartEncounterCommand(gameSessionService));
         registerCommand(new EndTurnCommand(gameSessionService));
+        registerCommand(new EndGameCommand(gameSessionService));
     }
 
     /**

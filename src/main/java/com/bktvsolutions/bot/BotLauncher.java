@@ -75,6 +75,7 @@ public class BotLauncher {
                             Commands.slash("join", "Joins the current game session"),
                             Commands.slash("startencounter", "Starts the encounter and begins turn order"),
                             Commands.slash("endturn", "Ends the current turn"),
+                            Commands.slash("endgame", "Ends the current game session"),
                             Commands.slash("ping", "Checks if the bot is responding"),
                             Commands.slash("roll", "Rolls a die")
                                     .addOption(OptionType.INTEGER, "sides", "Number of sides on the die", false)
