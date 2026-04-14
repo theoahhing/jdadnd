@@ -100,6 +100,10 @@ public class Character {
         return strength;
     }
 
+    public int getStrengthModifier() {
+        return (strength - 10) / 2;
+    }
+
     public void setStrength(int strength) {
         validateNonNegative(strength, "strength");
         this.strength = strength;
@@ -109,6 +113,10 @@ public class Character {
         return agility;
     }
 
+    public int getAgilityModifier() {
+        return (agility - 10) / 2;
+    }
+
     public void setAgility(int agility) {
         validateNonNegative(agility, "agility");
         this.agility = agility;
@@ -116,6 +124,10 @@ public class Character {
 
     public int getIntelligence() {
         return intelligence;
+    }
+
+    public int getIntelligenceModifier() {
+        return (intelligence - 10) / 2;
     }
 
     public void setIntelligence(int intelligence) {

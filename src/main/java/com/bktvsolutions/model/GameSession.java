@@ -56,6 +56,22 @@ public class GameSession {
     }
 
     /**
+        Starts the game session using the provided player order.
+
+        @param playerOrder ordered players for turn sequence
+        @throws IllegalArgumentException if playerOrder is null or empty
+    */
+
+    public void start(List<Player> playerOrder) {
+        if (playerOrder == null || playerOrder.isEmpty()) {
+            throw new IllegalArgumentException("Player Order cannot be null or empty");
+        }
+
+        active = true;
+        turnService.startEncounter(playerOrder);
+    }
+
+    /**
         Ends the game session.
     */
 
