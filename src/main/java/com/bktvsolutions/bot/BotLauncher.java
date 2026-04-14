@@ -10,7 +10,6 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
-import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;
 
@@ -27,6 +26,8 @@ public class BotLauncher {
     /**
         Creates a bot launcher with the provided token and listener.
 
+        @param token Discord bot token
+        @param botListener listener used to handle bot events
         @throws IllegalArgumentException if token is null or blank
         @throws IllegalArgumentException if botListener is null
     */
@@ -53,6 +54,10 @@ public class BotLauncher {
     */
 
     public void start() throws LoginException, InterruptedException {
+        if (jda != null) {
+            throw new IllegalStateException("Bot is already running");
+        }
+
         jda = JDABuilder.createDefault(token)
                 .addEventListeners(botListener)
                 .build();
@@ -71,7 +76,7 @@ public class BotLauncher {
                             Commands.slash("startencounter", "Starts the encounter and begins turn order"),
                             Commands.slash("endturn", "Ends the current turn"),
                             Commands.slash("ping", "Checks if the bot is responding"),
-                                                        Commands.slash("roll", "Rolls a die")
+                            Commands.slash("roll", "Rolls a die")
                                     .addOption(OptionType.INTEGER, "sides", "Number of sides on the die", false)
                     )
                     .queue();

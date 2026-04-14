@@ -17,14 +17,6 @@ public class CommandService {
     private final CommandManager commandManager;
 
     /**
-        Creates a command service with a default command manager.
-    */
-
-    public CommandService() {
-        this.commandManager = new CommandManager();
-    }
-
-    /**
         Creates a command service with the provided command manager.
 
         @param commandManager command manager to use
@@ -43,6 +35,7 @@ public class CommandService {
         Executes the matching slash command.
 
         @param event slash command interaction event
+        @throws IllegalArgumentException if event is null
     */
 
     public void handleSlashCommand(SlashCommandInteractionEvent event) {
@@ -68,7 +61,7 @@ public class CommandService {
     */
 
     private void handleUnknown(SlashCommandInteractionEvent event) {
-        event.reply("Unknown command")
+        event.reply("Unknown command.")
                 .setEphemeral(true)
                 .queue();
     }
