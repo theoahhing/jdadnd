@@ -5,6 +5,8 @@
 
 package com.bktvsolutions.command;
 
+import com.bktvsolutions.service.GameSessionService;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,6 +18,7 @@ import java.util.Map;
 
 public class CommandManager {
     private final Map<String, Command> commands;
+    private final GameSessionService gameSessionService;
 
     /**
         Creates a command manager and registers default commands.
@@ -23,6 +26,8 @@ public class CommandManager {
 
     public CommandManager() {
         this.commands = new HashMap<>();
+        this.gameSessionService = new GameSessionService();
+
         registerDefaultCommands();
     }
 
@@ -33,6 +38,9 @@ public class CommandManager {
     private void registerDefaultCommands() {
         registerCommand(new PingCommand());
         registerCommand(new RollCommand());
+        registerCommand(new StartGameCommand(gameSessionService));
+        registerCommand(new JoinGameCommand(gameSessionService));
+        registerCommand(new EndTurnCommand(gameSessionService));
     }
 
     /**
